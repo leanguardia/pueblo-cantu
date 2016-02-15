@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @lot.number %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @lot.area %>
+</p>
+
+<%= link_to 'Edit', edit_lot_path(@lot) %> |
+<%= link_to 'Back', lots_path %>

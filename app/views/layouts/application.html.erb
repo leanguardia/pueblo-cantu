@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>UrbaSandra</title>
+  <title>Pueblo Cantu</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <%= yield %>
+  <div id="wrapper">
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">Pueblo Cantu</a>
+          </div>
+
+          <%= render 'static_pages/nav_header' %>
+          <%= render 'static_pages/nav_sidebar' %>
+
+      </nav>
+
+      <div id="page-wrapper">
+        <br>
+        <p class='center' id="notice"><%= notice %></p>
+        <%= yield %>
+      </div>
+
+  </div>
 
 </body>
 </html>
