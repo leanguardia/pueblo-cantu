@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @family.last_name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @family.phone %>
+</p>
+
+<p>
+  <strong>Male members:</strong>
+  <%= @family.male_members %>
+</p>
+
+<p>
+  <strong>Female members:</strong>
+  <%= @family.female_members %>
+</p>
+
+<p>
+  <strong>Entry date:</strong>
+  <%= @family.entry_date %>
+</p>
+
+<p>
+  <strong>Departure date:</strong>
+  <%= @family.departure_date %>
+</p>
+
+<%= link_to 'Edit', edit_family_path(@family) %> |
+<%= link_to 'Back', families_path %>
