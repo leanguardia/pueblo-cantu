@@ -13,26 +13,24 @@
     <% end %>
 
   <div class="col-md-6">
-      <div class="field">
         <%= f.label :Apellidos %><br>
         <%= f.text_field :last_name ,class:'form-control'%>
-      </div><br>
-      <div class="field">
+      <br>
         <%= f.label :Cantidad_de_miembros %><br>
         <%= f.select :members_number, [1,2,3,4,5,6,7,8,9,10] , {}, class:'form-control'%>
-      </div><br>
+      <br>
+        <%= f.label :Lote %><br>
+        <%= f.select :lot_id, Lot.all.collect {|l| [ l.number, l.id ] } , {}, class:'form-control' %>
   </div>
   <div class="col-md-6">
-      <div class="field">
         <%= f.label :Telefono %><br>
         <%= f.text_field :phone ,class:'form-control'%>
-      </div><br>
-      <div class="field">
+      <br>
         <%= f.label :Fecha_de_ingreso %><br>
         <div class="form-inline">
             <%= f.date_select :entry_date, {}, {class:'form-control date-select'} %>
         </div>
-      </div><br>
+      <br>
   </div>
 </div>
 <br>
