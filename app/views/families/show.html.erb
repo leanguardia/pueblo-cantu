@@ -1,34 +1,46 @@
-<p id="notice"><%= notice %></p>
+<h1>Familia <%= @family.last_name %></h1>
+<hr>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @family.last_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @family.phone %>
-</p>
-
-<p>
-  <strong>Male members:</strong>
-  <%= @family.male_members %>
-</p>
-
-<p>
-  <strong>Female members:</strong>
-  <%= @family.female_members %>
-</p>
-
-<p>
-  <strong>Entry date:</strong>
-  <%= @family.entry_date %>
-</p>
-
-<p>
-  <strong>Departure date:</strong>
-  <%= @family.departure_date %>
-</p>
-
-<%= link_to 'Edit', edit_family_path(@family) %> |
-<%= link_to 'Back', families_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Informacion de la familia
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><i class="fa fa-phone fa-lg"></i> Telefono</div>
+          <div class="panel-body">
+            <%= @family.phone %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="panel panel-yellow">
+          <div class="panel-heading"><i class="fa fa-users fa-lg"></i> Miembros</div>
+          <div class="panel-body">
+            <%= @family.members_number %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="panel panel-green">
+          <div class="panel-heading"><i class="fa fa-calendar fa-lg"></i> Fecha de ingreso</div>
+          <div class="panel-body">
+            <%= @family.entry_date %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="panel panel-red">
+          <div class="panel-heading"><i class="fa fa-arrow-right fa-lg"></i> Fecha de salida</div>
+          <div class="panel-body">
+            <%= @family.departure_date %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to 'Editar', edit_family_path(@family) ,class:'btn btn-default'%>
+<%= link_to 'Volver', families_path,class:'btn btn-default' %>

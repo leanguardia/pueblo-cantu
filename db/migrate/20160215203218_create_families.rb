@@ -3,10 +3,10 @@ class CreateFamilies < ActiveRecord::Migration
     create_table :families do |t|
       t.string :last_name
       t.string :phone
-      t.integer :male_members
-      t.integer :female_members
+      t.integer :members_number
       t.date :entry_date
       t.date :departure_date
+      t.references :lot, index: true, foreign_key: true
 
       t.timestamps null: false
     end

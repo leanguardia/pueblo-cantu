@@ -16,13 +16,15 @@ ActiveRecord::Schema.define(version: 20160215203218) do
   create_table "families", force: :cascade do |t|
     t.string   "last_name"
     t.string   "phone"
-    t.integer  "male_members"
-    t.integer  "female_members"
+    t.integer  "members_number"
     t.date     "entry_date"
     t.date     "departure_date"
+    t.integer  "lot_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
+
+  add_index "families", ["lot_id"], name: "index_families_on_lot_id"
 
   create_table "lots", force: :cascade do |t|
     t.string   "number"

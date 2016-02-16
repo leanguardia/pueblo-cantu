@@ -28,7 +28,7 @@ class FamiliesController < ApplicationController
 
     respond_to do |format|
       if @family.save
-        format.html { redirect_to @family, notice: 'Family was successfully created.' }
+        format.html { redirect_to @family, notice: 'Familia creada exitosamente' }
         format.json { render :show, status: :created, location: @family }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class FamiliesController < ApplicationController
   def update
     respond_to do |format|
       if @family.update(family_params)
-        format.html { redirect_to @family, notice: 'Family was successfully updated.' }
+        format.html { redirect_to @family, notice: 'Familia editada exitosamente' }
         format.json { render :show, status: :ok, location: @family }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class FamiliesController < ApplicationController
   def destroy
     @family.destroy
     respond_to do |format|
-      format.html { redirect_to families_url, notice: 'Family was successfully destroyed.' }
+      format.html { redirect_to families_url, notice: 'Familia eliminada' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class FamiliesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def family_params
-      params.require(:family).permit(:last_name, :phone, :male_members, :female_members, :entry_date, :departure_date)
+      params.require(:family).permit(:last_name, :phone, :members_number, :entry_date)
     end
 end
