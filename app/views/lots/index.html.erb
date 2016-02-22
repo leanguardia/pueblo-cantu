@@ -9,6 +9,7 @@
       <thead>
         <tr>
           <th>Numero</th>
+          <th>Familia</th>
           <th>Superficie (m<sup>2</sup>)</th>
           <th colspan="2"></th>
         </tr>
@@ -18,6 +19,13 @@
         <% @lots.each do |lot| %>
           <tr>
             <td><%= lot.number %></td>
+            <td>
+              <% if lot.current_family.nil? %>
+               "N/D"
+              <% else %>
+                <%= link_to lot.current_family.last_name, lot.current_family %>
+              <% end %>
+            </td>
             <td><%= lot.area %></td>
             <td><%= link_to 'Editar', edit_lot_path(lot) %></td>
             <td><%= link_to 'Eliminar', lot, method: :delete, data: { confirm: 'Estas seguro' } %></td>

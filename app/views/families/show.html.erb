@@ -3,14 +3,14 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    Informacion de la familia
+    Informacion de la Familia
   </div>
-  <div class="panel-body">
+  <div class="panel-body text-center">
     <div class="row">
       <div class="col-sm-6 col-md-3">
         <div class="panel panel-primary">
           <div class="panel-heading"><i class="fa fa-phone fa-lg"></i> Telefono</div>
-          <div class="panel-body">
+          <div class="panel-body text-center">
             <%= @family.phone %>
           </div>
         </div>
@@ -18,7 +18,7 @@
       <div class="col-sm-6 col-md-3">
         <div class="panel panel-yellow">
           <div class="panel-heading"><i class="fa fa-users fa-lg"></i> Miembros</div>
-          <div class="panel-body">
+          <div class="panel-body text-center">
             <%= @family.members_number %>
           </div>
         </div>
@@ -26,22 +26,26 @@
       <div class="col-sm-6 col-md-3">
         <div class="panel panel-green">
           <div class="panel-heading"><i class="fa fa-calendar fa-lg"></i> Fecha de ingreso</div>
-          <div class="panel-body">
-            <%= @family.entry_date %>
+          <div class="panel-body text-center">
+            <%= @family.entry_date.strftime('%d/%m/%y') %>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-md-3">
         <div class="panel panel-red">
-          <div class="panel-heading"><i class="fa fa-arrow-right fa-lg"></i> Fecha de salida</div>
-          <div class="panel-body">
-            <%= @family.departure_date %>
+          <div class="panel-heading"><i class="fa fa-table fa-lg"></i> Lote</div>
+          <div class="panel-body text-center">
+            <strong>Lote: </strong> <%= @family.lot.number %> <br>
+            <% if @family.departure_date.nil? %>
+              <strong>Viven actualmente</strong>
+            <% else %>
+              <strong>Fecha de salida:</strong> <%= @family.departure_date %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<%=@family.lot%>
 <%= link_to 'Editar', edit_family_path(@family) ,class:'btn btn-default'%>
 <%= link_to 'Volver', families_path,class:'btn btn-default' %>

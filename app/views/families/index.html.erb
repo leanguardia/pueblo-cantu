@@ -5,31 +5,44 @@
     Lista de Familias Vecinas
   </div>
   <div class="panel-body">
-    <table class='table'>
-      <thead>
-        <tr>
-          <th>Apellidos</th>
-          <th>Telefono</th>
-          <th>Miembros</th>
-          <th>Ingreso</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#neighbors" data-toggle="tab" area-expanded="true">Vecinos actuales</a></li>
+      <li><a href="#ex-neighbors"data-toggle="tab" area-expanded="false">Ex-vecinos</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade active in" id="neighbors">
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Apellidos</th>
+              <th>Telefono</th>
+              <th>Miembros</th>
+              <th>Lote</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-      <tbody>
-        <% @families.each do |family| %>
-          <tr>
-            <td><%= family.last_name %></td>
-            <td><%= family.phone %></td>
-            <td><%= family.members_number %></td>
-            <td><%= family.entry_date %></td>
-            <td><%= link_to 'Ver', family %></td>
-            <td><%= link_to 'Editar', edit_family_path(family) %></td>
-            <td><%= link_to 'Desalojar', family, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <tbody>
+            <% @families.each do |family| %>
+              <tr>
+                <td><%= family.last_name %></td>
+                <td><%= family.phone %></td>
+                <td><%= family.members_number %></td>
+                <td><%= family.lot.number %></td>
+                <td><%= link_to 'Desalojar', family, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Ver', family %></td>
+                <td><%= link_to 'Editar', edit_family_path(family) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane fade" id="ex-neighbors">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+      </div>
+    </div>
   </div>
   <div class="panel-footer">
       <%= link_to '+', new_family_path, class:'btn btn-success btn-circle btn-lg'%>
